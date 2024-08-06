@@ -2,7 +2,9 @@ Hello everyone, welcome to my first coding app!
 A simple Python application that scans your Steam library, identifies installed games, and displays custom quotes for each game.
 If you wanted to, you can edit the PY file to make more quotes for more games!
 
-![app](https://github.com/user-attachments/assets/35b86fc5-7745-441f-b0a0-2b79a610d0cd)
+![win](https://github.com/user-attachments/assets/82aa0dd4-89f3-4538-b6c5-d8e05a1d8933)
+
+![lunix](https://github.com/user-attachments/assets/fb7ade9c-bd18-436c-a621-b1debc04d94c)
 
 How to install on Windows:
 1. Download the ZIP file from the [Releases](https://github.com/scientistmdl/steam_quote_game/releases) section.
