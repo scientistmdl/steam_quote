@@ -4,13 +4,13 @@ If you wanted to, you can edit the PY file to make more quotes for more games!
 
 ![win](https://github.com/user-attachments/assets/82aa0dd4-89f3-4538-b6c5-d8e05a1d8933)
 
-![lunix](https://github.com/user-attachments/assets/fb7ade9c-bd18-436c-a621-b1debc04d94c)
-
 How to install on Windows:
 1. Download the ZIP file from the [Releases](https://github.com/scientistmdl/steam_quote_game/releases) section.
 2. Extract the ZIP file and open it
 3. Run the `steam_quotes.exe` file.
 Done
+
+![lunix](https://github.com/user-attachments/assets/fb7ade9c-bd18-436c-a621-b1debc04d94c)
 
 How to install on Lunix:
 1. Download the ZIP file from the [Releases](https://github.com/scientistmdl/steam_quote_game/releases) section.
