@@ -14,7 +14,7 @@ Done
 
 How to install on Lunix:
 1. Download the ZIP file from the [Releases](https://github.com/scientistmdl/steam_quote_game/releases) section.
-2.Extract the contents of the ZIP file.
+2. Extract the contents of the ZIP file.
 3. Open a terminal and navigate to the directory containing the extracted files.
 4. Make the executable file: `chmod +x steam_quote`
 5. Run the executable: `./steam_quote`
