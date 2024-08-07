@@ -1,11 +1,12 @@
 import os
 import tkinter as tk
 from tkinter import scrolledtext, messagebox
+import platform
 
 # Define custom quotes for specific games
 quotes = {
-    "Team Fortress 2": "A classic that got abandoned.",
-    "SourceFilmmaker": "9 years without updates...",
+    "Team Fortress 2": "A classic that got abused by cheaters.",
+    "SourceFilmmaker": "9 years without updates... I love Valve.",
     "Grand Theft Auto V": "Great if you want the simulation of robbing liquor stores.",
     "Half-Life": "OH MY GOD, WE'RE DOOOOMED!!!",
     "The Stanley Parable": "STOP MESSING WITH MY HEAD, NARRATOR!",
@@ -13,8 +14,10 @@ quotes = {
     "Source SDK Base 2013 Singleplayer": "Make a mod, you coward!",
     "Source SDK Base 2013 Multiplayer": "Make a multiplayer mod, you coward!",
     "Portal": "I feel sick after placing two portals above and below me...",
+    "Portal 2": "Fatty. Adopted fatty. Fatty fatty, no parents.",
     "left 4 dead": "*YOU HAVE ALERTED THE HORDE*",
-    "Overwatch": "Stop it... Get some help.",
+    "Left 4 Dead 2": "Barbeque Bacon Burger.",
+    "Overwatch": "Stop it. Get some help.",
     "Just Cause": "If you don't like this game, we're not friends.",
     "Krunker": "Basically a COD ripoff mixed with Minecraft graphics.",
     "Half-Life 2": "Sometimes... I dream about cheese.",
@@ -25,7 +28,7 @@ quotes = {
     "Among Us": "sus... Did I do the funny?",
     "Call of Duty Black Ops II": "You can't kill me...",
     "HenryStickmin": "HENRYYYYYYYYYYYYYY!!!",
-    "OBS Studio": "Too many anime girl on the community hub.",
+    "OBS Studio": "Too many anime girls on the community hub.",
     "Blender": "I made a cube once then closed the program.",
     "Half-Life 2 Update": "Sometimes... I dream about cheese. - Updated",
     "Lego Star Wars Saga": "I wanna eat lego R2-D2.",
@@ -35,17 +38,30 @@ quotes = {
     "Hello Neighbor Alpha 3": "This is bad.",
     "Hello Neighbor Alpha 4": "This is terrible.",
     "Hello Neighbor": "This game sucks gods balls.",
-    "counter-strike source": "I only got this for Garry's Mod only.",
+    "counter-strike source": "I only got this for Garry's Mod.",
     "BeamNG.drive": "I don't wanna drive a car anymore.",
     "Apex Legends": "Merry me, Pathfinder.",
     "Counter-Strike Global Offensive": "Can we go back to Source 1, please?",
-    "sourcesdk_content": "IDK what this is.",
-    "Half-Life MMod":  "HL2 but it has COD mechanics.",
+    "sourcesdk_content": "What do you want me to put in here!?!",
+    "Half-Life MMod":  "HL1 but better graphics.",
     "Halo The Master Chief Collection": "We playin, Halo Reach with this one!",
     "Fallout 3 goty": "My dad left me.",
     "Fallout Shelter": "I only play this game on my Nintendo Switch.",
-    "Battlefield 1": "This game aged quite quickly, but this is EA of course"
-}
+    "Battlefield 1": "This game aged quite quickly, but this is EA of course",
+    "Call of Duty Black Ops III": "So... What's the story?",
+    "day of defeat source": "Call Of Duty: WAW but in source.",
+    "EntropyZero2": "WILSOOOOOONNNNNNNNNN!",
+    "Entropy Zero": "Man, my stomach killing me.",
+    "Flatout 3": "Why would you buy this game you physico?!?",
+    "Resident Evil 4": "I dont like, Ashley.",
+    "sbox": "Wow! So many gamemodes that break all the time! (I know it's early access)",
+    "Crab Game": "It's crab game... I like crabs...",
+    "Human Fall Flat": "I like jumping off to my death, only to back.",
+    "Splitgate": "If CS and Portal had a baby.",
+    "Batman Arkham City GOTY": "I got stuck where your in the church and it's about to blow up.",
+    "Sims 4": "Life is a simulation, and you're the director.",
+    "Proton - Experimental": "Hello Linux User...",
+    }
 
 def list_steam_games(steam_directory):
     try:
@@ -101,11 +117,12 @@ def create_app():
     # Create a scrolled text widget with adjusted size
     text_area = scrolledtext.ScrolledText(window, width=80, height=30, wrap=tk.WORD)
     text_area.pack(padx=15, pady=15)
-    
-    # Remove maximize and minimize buttons
+
+    # Remove maximize and minimize buttons only on Windows
     window.resizable(False, False)
-    window.wm_attributes('-toolwindow', True)  # This attribute will make the window a tool window, which does not include the minimize/maximize buttons
-    
+    if platform.system() == "Windows":
+        window.wm_attributes('-toolwindow', True)  # This attribute will make the window a tool window, which does not include the minimize/maximize buttons
+
     # Populate the text area with game quotes
     games = list_steam_games(steam_directory)
     if games is not None:
@@ -118,5 +135,12 @@ def create_app():
     # Start the GUI event loop
     window.mainloop()
 
-steam_directory = "C:\Program Files (x86)\Steam\steamapps\common"
+# Set the default Steam directory based on the operating system
+if platform.system() == "Windows":
+    steam_directory = r"C:\Program Files (x86)\Steam\steamapps\common"
+elif platform.system() == "Linux":
+    steam_directory = os.path.expanduser("~/.local/share/Steam/steamapps/common")
+else:
+    steam_directory = ""  # Default to empty if OS is not recognized
+
 create_app()
